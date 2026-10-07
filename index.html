@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="臺北 YouBike 2.0 即時站點地圖，查看可借車輛、可還空位與站點更新時間。">
+  <meta name="theme-color" content="#142c43">
+  <title>臺北 YouBike 即時地圖｜SWP07</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23142c43'/%3E%3Cpath d='M16 5a8 8 0 0 0-8 8c0 6 8 14 8 14s8-8 8-14a8 8 0 0 0-8-8' fill='%23ffb127'/%3E%3Ccircle cx='16' cy='13' r='3' fill='%23142c43'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./vendor/leaflet/leaflet.js" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">Y</span><div><p class="eyebrow">TAIPEI / YOUBIKE 2.0</p><h1>臺北 YouBike 即時地圖</h1></div></div>
+    <span class="assignment">SWP07 地圖資訊</span>
+  </header>
+  <main>
+    <section class="overview" aria-label="全市站點統計">
+      <div class="intro"><h2>找一台車，開始你的下一程。</h2><p>點擊地圖站點，查看可借車輛與可還空位。</p></div>
+      <dl class="stats"><div><dt>全市站點</dt><dd id="station-count">—</dd></div><div><dt>可借車輛</dt><dd id="bike-count">—</dd></div><div><dt>可還空位</dt><dd id="space-count">—</dd></div></dl>
+    </section>
+    <section class="map-section" aria-label="YouBike 站點地圖">
+      <div class="toolbar"><div class="live-state"><span id="status-dot" class="status-dot" aria-hidden="true"></span><span id="status-text" role="status" aria-live="polite">正在取得站點資料…</span></div><div class="actions"><label class="auto-control"><input id="auto-refresh" type="checkbox" checked>每 60 秒更新</label><button id="reset-view" type="button">回到市中心</button><button id="refresh" class="primary" type="button">立即更新</button></div></div>
+      <div id="error-message" class="notice" role="alert" hidden></div>
+      <div class="map-container"><div id="map" aria-label="臺北市 YouBike 站點，使用加減按鈕縮放，點擊數字標記查看資訊"></div><div class="legend" aria-label="站點顏色圖例"><strong>標記數字＝可借車輛</strong><div><span class="key available"></span>6 輛以上<span class="key low"></span>1–5 輛<span class="key empty"></span>無車可借<span class="key inactive"></span>暫停營運</div></div></div>
+      <div class="map-bottom"><span>初始中心：臺北市政府 · 縮放層級 13</span><span id="fetched-time">尚未取得資料</span></div>
+    </section>
+  </main>
+  <footer><span>資料：<a href="https://data.gov.tw/dataset/137993" target="_blank" rel="noopener noreferrer">臺北市政府 YouBike 2.0 即時資訊</a></span><span>數量依來源更新，實際狀況以現場為準。</span></footer>
+  <noscript><p class="notice">請啟用 JavaScript，才能載入互動地圖與即時資料。</p></noscript>
+</body>
+</html>
